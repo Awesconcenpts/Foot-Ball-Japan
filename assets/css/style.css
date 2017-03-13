@@ -1,0 +1,492 @@
+/* change viewport */
+
+.wrap{
+    float:left;
+    height: auto;
+    width:100%;
+    min-height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+header{
+    border-bottom:5px solid #25C6D0;
+}
+footer{
+	 border-top:5px solid #25C6D0;
+	 padding-top:10px;
+	 padding-bottom:10px;
+}
+.logo{
+margin:10px 0px 10px 0px;
+	width:100%;
+	max-width: 569px;
+	
+}
+.stage-right,.stage-left{
+margin:10px 0px;
+}
+.stage-right label,.stage-left label{
+	padding:8px 0px;
+	margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color:#686868;
+	
+}
+body{
+    overflow: hid-den;
+}
+.loading{
+    -webkit-transition: all 0.8s ease-in-out,-webkit-opacity 0.0s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out,-moz-opacity 0.0s ease-in-out;
+    -o-transition: all 0.8s ease-in-out,-o-opacity 0.0s ease-in-out;
+    transition: all 0.8s ease-in-out,opacity 0.0s ease-in-out;
+    
+	opacity:0;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	-o-transform: scale(0.8);
+	transform: scale(0.8);
+	-webkit-transform-origin: center center;
+	-moz-transform-origin: center center;
+	-o-transform-origin: center center;
+	transform-origin: center center;
+	background-color:#FFF;
+}
+.loaded{
+	opacity:1;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	-webkit-transform-origin: center center;
+	-moz-transform-origin: center center;
+	-o-transform-origin: center center;
+	transform-origin: center center;
+}
+.nopadding {
+   padding: 0 !important;
+}
+.nopadding-left {
+   padding-left: 0; /* !important; */
+}
+.nopadding-right {
+   padding-right: 0; /*!important; */
+}
+input[type="text"].smart, input[type="email"].smart,select.smart{
+    color: #555;
+    height: 30px;
+    line-height:15px;
+    width: 100%;
+    padding: 0px 0px 0px 10px;
+    margin-top: 2px;
+    border: 1px solid #E5E5E5;
+    background: #FFFFFF;
+    outline: 0;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+    box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+    font: normal 14px/14px Arial, Helvetica, sans-serif;
+}
+
+textarea.smart{
+    height:100px;
+    padding-top: 10px;
+}
+select.smart {
+    background: #FFF url('down-arrow.png') no-repeat right;
+    background: #FFF url('down-arrow.png') no-repeat right);
+    appearance:none;
+    -webkit-appearance:none; 
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    width: 100%;
+    height: 30px;
+    line-height: 25px;
+}
+button.smart {
+    background-color: #9DC45F;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-border-radius: 5px;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #949494;
+}
+button.smart:hover {
+    background-color:#80A24A;
+}
+
+.rb select,.rb strong{
+	float:left;
+}
+.rb strong{
+	padding:4px 0px;
+	width:32px;
+}
+.rb select{
+	width:75%;
+	width:calc(100% - 40px);
+	width:-webkit-calc(100% - 40px);
+	width:-moz-calc(100% - 40px);
+	width:-webkit-calc(100% - 40px);
+	margin-left:5px;
+}
+.tored input[type="text"]{
+	width:85%;
+}
+.tored .checkbox{
+	position:relative;
+    height:0px;
+    width:0px;
+    background-color: #fff !important;
+    cursor:pointer;
+    
+    
+}
+.tored label,.tored input{
+	float:left;
+}
+.tored label{
+	padding:8px 5px;;
+}
+
+.tored .checkbox:before{
+	position: absolute;
+	content:" ";
+    top: 0px;
+    left: 0px;
+    height: 18px;
+    width: 18px;
+    background: #e6e6e6;
+    border-radius:2px;
+}
+.tored .checkbox:checked:before{
+	position: absolute;
+	content:" ";
+    top: 0px;
+    left: 0px;
+    height: 18px;
+    width: 18px;
+    background: #0e647d;
+    border-radius:2px;
+}
+.tored .checkbox:hover:before{
+	background: #2aa1c0;
+	border-radius:2px;
+}
+.tored .checkbox:after{
+	position: absolute;
+	content:" ";
+left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #FFFFFF;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.tored .checkbox:hover:after{
+position: absolute;
+	content:" ";
+left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #FFFFFF;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.tored .checkbox:checked:after{
+	position: absolute;
+	content:" ";
+left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #FFFFFF;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.fields-row{
+	padding:7px 0px;
+}
+.fields-row:first-child{
+	padding-top:0px;
+}
+/**
+ * Tooltip Styles
+ */
+
+/* Base styles for the element that has a tooltip */
+[data-tooltip],
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Base styles for the entire tooltip */
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before,
+.tooltip:after {
+  position: absolute;
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 
+      opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    -moz-transition:    
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    transition:         
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
+}
+
+/* Show the entire tooltip on hover and focus */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* Base styles for the tooltip's directional arrow */
+.tooltip:before,
+[data-tooltip]:before {
+  z-index: 1001;
+  border: 6px solid transparent;
+  background: transparent;
+  content: "";
+}
+
+/* Base styles for the tooltip's content area */
+.tooltip:after,
+[data-tooltip]:after {
+  z-index: 1000;
+  padding: 8px;
+  width: 160px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Directions */
+
+/* Top (default) */
+
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before,
+.tooltip:after,
+.tooltip-top:before,
+.tooltip-top:after {
+  bottom: 100%;
+  left: 50%;
+  font-size:12px;
+  text-align:center;
+}
+
+[data-tooltip]:before,
+.tooltip:before,
+.tooltip-top:before {
+  margin-left: -6px;
+  margin-bottom: -12px;
+  border-top-color: #000;
+  border-top-color: hsla(0, 0%, 20%, 0.9);
+}
+
+/* Horizontally align top/bottom tooltips */
+[data-tooltip]:after,
+.tooltip:after,
+.tooltip-top:after {
+  margin-left: -80px;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after,
+.tooltip-top:hover:before,
+.tooltip-top:hover:after,
+.tooltip-top:focus:before,
+.tooltip-top:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px); 
+}
+
+/* Left */
+.tooltip-left:before,
+.tooltip-left:after {
+  right: 100%;
+  bottom: 50%;
+  left: auto;
+}
+
+.tooltip-left:before {
+  margin-left: 0;
+  margin-right: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-left-color: #000;
+  border-left-color: hsla(0, 0%, 20%, 0.9);
+}
+
+.tooltip-left:hover:before,
+.tooltip-left:hover:after,
+.tooltip-left:focus:before,
+.tooltip-left:focus:after {
+  -webkit-transform: translateX(-12px);
+  -moz-transform:    translateX(-12px);
+  transform:         translateX(-12px); 
+}
+
+/* Bottom */
+.tooltip-bottom:before,
+.tooltip-bottom:after {
+  top: 100%;
+  bottom: auto;
+  left: 50%;
+}
+
+.tooltip-bottom:before {
+  margin-top: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-bottom-color: #000;
+  border-bottom-color: hsla(0, 0%, 20%, 0.9);
+}
+
+.tooltip-bottom:hover:before,
+.tooltip-bottom:hover:after,
+.tooltip-bottom:focus:before,
+.tooltip-bottom:focus:after {
+  -webkit-transform: translateY(12px);
+  -moz-transform:    translateY(12px);
+  transform:         translateY(12px); 
+}
+
+/* Right */
+.tooltip-right:before,
+.tooltip-right:after {
+  bottom: 50%;
+  left: 100%;
+}
+
+.tooltip-right:before {
+  margin-bottom: 0;
+  margin-left: -12px;
+  border-top-color: transparent;
+  border-right-color: #000;
+  border-right-color: hsla(0, 0%, 20%, 0.9);
+}
+
+.tooltip-right:hover:before,
+.tooltip-right:hover:after,
+.tooltip-right:focus:before,
+.tooltip-right:focus:after {
+  -webkit-transform: translateX(12px);
+  -moz-transform:    translateX(12px);
+  transform:         translateX(12px); 
+}
+
+/* Move directional arrows down a bit for left/right tooltips */
+.tooltip-left:before,
+.tooltip-right:before {
+  top: 3px;
+}
+
+/* Vertically center tooltip content for left/right tooltips */
+.tooltip-left:after,
+.tooltip-right:after {
+  margin-left: 0;
+  margin-bottom: -16px;
+}
+.buttons{
+	float:left;
+	height:auto;
+	width:100%;
+	padding:10px 0px 5px 0px;
+
+}
+.top-sec{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.col3th{
+	position: relative;
+}
+.col3th [type="checkbox"]{
+	position: absolute;
+	z-index: 999999;
+	
+}
+select.smart{
+	padding-right: 15px;
+}
+.top-sec label{
+		font-size: 14px;
+		margin:8px 0px 0px 0px;
+}
+.foter label{
+	padding: 8px 0px 0px 0px;
+	margin-bottom: 0px;
+	font-size: 13px;
+}
+@media(max-width:576px){
+
+	
+}
+@media(max-width:768px){
+	.top-sec label,.foter label{
+		font-size: 12px;
+	}
+	.league, .league-control{
+		margin-bottom: 10px;
+	}
+	.league label,.club label,.formation label,.pitch label{
+		float:right;
+		padding-right:0px;
+	}
+}
+@media(max-width:992px){
+	.top-sec label,.foter label{
+		font-size: 12px;
+	}
+}
+@media(max-width:1200px){
+	.wraper-ng-repeaters{
+		displa-y: none;
+	}
+	.col4th{
+		padding-right: 0px!important;
+	}
+	
+}

@@ -1,0 +1,135 @@
+<section class="container-fluid">
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 top-sec">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6">
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 league">
+						<label>League</label>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 league-control">
+						<select class="smart" [ngModel]="this._default_leagues_model" (ngModelChange)="onDefaultLeagueChange($event)">
+							<option value="">---------------</option>
+							<option *ngFor="let a of this._default_leagues;" value="{{ a.id }}">{{ a.n }}</option>
+						</select>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 club nopadding">
+						<label class="pull-right">Club</label>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 club-control">
+						<select class="smart" [ngModel]="this._default_clubes_model" (ngModelChange)="onDefaultClubChange($event)">
+							<option value="">----------------</option>
+							<option *ngFor="let a of this._default_clubes;" value="{{ a.id }}">{{ a.n }}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6">
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 formation">
+						<label>Formation</label>
+					</div>
+					<div class="col-lg-4 col-md-4  col-sm-4 col-xs-4 formation-control">
+						<select class="smart" [ngModel]="this._format_model" (ngModelChange)="onFormatChange($event)"> 
+							<option *ngFor="let a of this._formats;" value="{{ a.id }}">{{ a.n }}</option>
+						</select>
+					</div>
+					<div class="col-lg-3  col-md-3  col-sm-3 col-xs-2 pitch nopadding ">
+						<label class="pull-right">Pitch Design</label>
+					</div>
+					<div class="col-lg-3  col-md-3  col-sm-3 col-xs-4 pitch-control">
+						<select class="smart" [ngModel]="this._pitch_model" (ngModelChange)="onPitchChange($event)">
+							<option *ngFor="let a of this._pitches;" value="{{ a.i }}">{{ a.n }}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 hidden-sm hidden-xs">
+				<div class="wraper-ng-repeaters" id="wraper-ng-repeaters" *ngFor="let _xigen of this._xigens;">
+					<div class="row fields-row">
+						<div class="col-lg-3 col-md-3 nopadding-right rb col1th">
+							<strong>{{_xigen.for}}</strong>
+							<select class="smart" [(ngModel)]="this._league_model[_xigen.id]" (ngModelChange)="onLeagueChange($event,_xigen)" [disabled]="_disable_element[_xigen.id]">
+								<option value="">-------</option>
+								<option *ngFor="let le of this._league[_xigen.id];" value="{{ le.id }}">{{ le.n }}</option>
+							</select>
+						</div>
+						<div class="col-lg-3 col-md-3 nopadding-right col2th">
+							<select class="smart" [(ngModel)]="this._club_model[_xigen.id]" (ngModelChange)="onClubChange($event,_xigen)">
+								<option value="">------</option>
+								<option *ngFor="let le of this._club[_xigen.id];" value="{{ le.id }}">{{ le.n }}</option>
+							</select>
+						</div>
+						<div class="col-lg-3 col-md-3 nopadding-right tored col3th">
+							<input type="text" name="name" value="{{_xigen.n}}" class="smart" [(ngModel)]="_xigen.n" ng-maxlength="2" (ngModelChange)="onNameChange($event,_xigen)"/>
+							<label class="tooltip-left" data-tooltip="Check if you want it to Red Color">
+								<input type="checkbox" class="checkbox" [ngModel]="_xigen.co== 'red'" (ngModelChange)="_xigen.co=$event?'red':'black'"/>
+							</label>
+						</div>
+						<div class="col-lg-1 col-md-1 col4th">
+							<input type="text"  name="number" class="smart" [(ngModel)]="_xigen.no" value="{{_xigen.no}}" (ngModelChange)="onNumberChange($event,_xigen)"/>
+						</div>
+						<div class="col-lg-2 col-md-2">
+							<select class="smart" [(ngModel)]="_xigen.s">
+								<option value="shadow-default.png">----------</option>
+								<option value="shadow-red.png">Red</option>
+								<option value="shadow-white.png">White</option>
+								<option value="shadow-yellow.png">Yellow</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<div id="football-stage-parent">
+					<svg id="football-stage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet">
+								<defs>
+									<pattern id="img1" patternUnits="userSpaceOnUse" width="600" height="400">
+										<image [attr.xlink:href]="this.baseUrl+'assets/images/fields/'+this._pitch_model" xlink:href="" x="0" y="0" width="600" height="400"/>
+									</pattern>
+								</defs>
+								<path id="bgpath" width="100%" height="100%" fill="url(#img1)" stroke="#E5E5E5" stroke-width="5" stroke-miterlimit="5" d="M600,0v400H0V0H400z"/>
+								<g x="0" y="0" style="cursor:move">
+									<g *ngFor="let p_ of this._xigens;" [attr.id]="p_.id" [attr.transform]="'translate('+p_.t+')'" transform="translate(0,0)" class="dragable">
+										<image width="70" height="70" x="-11" y="-9" [attr.xlink:href]="this.baseUrl+'assets/images/avatars/'+p_.s" xlink:href=""></image>
+										<image width="48" height="52" [attr.xlink:href]="this.baseUrl+'assets/images/avatars/'+p_.i" xlink:href=""></image>
+										<text [attr.x]="p_.noAx" [attr.id]="'no'+p_.id" x="0" y="20" font-size="10" fill="black" font-weight="bold" cursor="move" style="font-family:serif,verdana,georgia;">{{p_.no}}</text>
+										<text [attr.x]="p_.nAx" [attr.id]="'n'+p_.id" x="0" y="70" font-size="12" [attr.fill]="p_.co" fill="" font-weight="bold" cursor="move" style="font-family:serif,verdana,georgia;">{{p_.n}}</text>
+									</g>
+								</g>
+								<g transform="translate(10,335)">
+									<image x="0" y="0" [attr.xlink:href]="this.baseUrl+'assets/images/stage-logo.gif'"></image>
+									<text [attr.x]="this._team_name_x" x="0" y="20" font-size="17" fill="white" font-weight="bold" cursor="pointer" style="font-family:serif,verdana,georgia;" id="team_name">{{this._team_name}}</text>
+									<text [attr.x]="this._team_manager_x" x="0" y="40" font-size="14" fill="white" cursor="pointer" style="font-family:serif,verdana,georgia;" id="team_manager">{{this._team_manager}}</text>
+								</g>
+
+							</svg>
+				</div>
+				<div class="row foter">
+					<div class="col-lg-2 col-md-3 col-sm-2 col-xs-2 nopadding-right">
+						<label>Team's Name</label>
+					</div>
+					<div class="col-lg-4 col-md-9 col-sm-4 col-xs-4">
+						<input type="text" [(ngModel)]="this._team_name" class="smart" (ngModelChange)="onTeamNameChange($event)"/>
+					</div>
+					<div class="col-lg-2  col-md-3 col-sm-2 col-xs-2 nopadding-right">
+						<label>Manager/Coach</label>
+					</div>
+					<div class="col-lg-4  col-md-9 col-sm-4 col-xs-4">
+						<input type="text" [(ngModel)]="this._team_manager" class="smart" (ngModelChange)="onTeamManagerChange($event)"/>
+					</div>
+				</div>
+				<div class="buttons">
+					<button type="button" class="btn btn-primary preview" id="prev">See Preview</button>
+					<button type="button" class="btn btn-primary preview" id="down">Download as Scalable Graphic</button>
+					<button type="button" class="btn btn-primary " id="save">Save in Server</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
